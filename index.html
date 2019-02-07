@@ -22,18 +22,23 @@
       <h1 class="display-4 mb-4">Dog API: Simple GET Request</h1>
       <hr />
       <div id="input"></div>
-      <form id="dog-num-form">
+      <form id="breed-type">
         <div class="form-group">
-          <h3>Show 1 Random Dog Photo!</h3>
+          <h3>What breed of dog you want?</h3>
+          <input
+            type="text"
+            id="get-dog"
+            class="form-control"
+            placeholder="Name a breed of dogs"
+            required
+          />
         </div>
         <div class="button">
-          <form id="get-photo">
-            <input
-              type="submit"
-              class="btn btn-primary mr-4 get-dog-btn"
-              value="Get Dog Photo!"
-            />
-          </form>
+          <input
+            type="submit"
+            class="btn btn-primary mr-4 get-dog-btn"
+            value="Get Dog Photo!"
+          />
         </div>
         <div class="results hidden">
           <h3>Here's your dog pictures!!</h3>
