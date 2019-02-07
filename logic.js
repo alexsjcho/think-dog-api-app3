@@ -29,7 +29,9 @@ function displayResults(responseJson) {
   if (responseJson.status !== "success") {
     alert("Hmmm. Cannot find that breed of dog. Try again.");
   } else if (responseJson.status === "success") {
-    $(".results").append(`<img src="${responseJson.message}">`);
+    $(".results").replaceWith(
+      `<img src="${responseJson.message}" class="results">`
+    );
     $(".results").removeClass("hidden");
   }
 }
