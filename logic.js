@@ -5,30 +5,31 @@ $(function() {
   watchGetDogButton();
 });
 
+function getUserInput() {
+  let someBreed = $("#get-dog-breed").val();
+  return someBreed;
+}
+
 function watchGetDogButton() {
-  $("#get-dog").submit(e => {
+  $("#form-input").submit(e => {
     e.preventDefault();
     getDogImage();
   });
 }
 
-function getUserInput() {
-  $("breed-type").submit(e => {
-    e.preventDefault();
-    let someBreed = $("#num-dog").val();
-    getDogImage(getNumInput);
-  });
-}
-
 function getDogImage() {
-  fetch(`https://dog.ceo/api/breed/${getUserInput}/images/random`)
+  fetch("https://dog.ceo/api/breed/" + getUserInput() + "/images/random")
     .then(response => response.json())
-    .then(responseJson => displayResults(responseJson.message))
+    .then(responseJson => displayResults(responseJson))
     .catch(error => alert("Hmmm. Cannot find that breed of dog. Try again."));
 }
 
 function displayResults(responseJson) {
   console.log(responseJson);
-  $(".results").append(`<img src="${responseJson.message}">`);
-  $(".results").removeClass("hidden");
+  if (responseJson.status !== "success") {
+    alert("Hmmm. Cannot find that breed of dog. Try again.");
+  } else if (responseJson.status === "success") {
+    $(".results").append(`<img src="${responseJson.message}">`);
+    $(".results").removeClass("hidden");
+  }
 }
