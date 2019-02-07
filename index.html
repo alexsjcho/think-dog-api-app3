@@ -1,14 +1,47 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
-    <script src="main.js"></script>
-</head>
-<body>
-    
-</body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Thinkful Simple GET Requests API assignment"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Dog API GET Request</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+      integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <section id="container">
+      <h1 class="display-4 mb-4">Dog API: Simple GET Request</h1>
+      <hr />
+      <div id="input"></div>
+      <form id="dog-num-form">
+        <div class="form-group">
+          <h3>Show 1 Random Dog Photo!</h3>
+        </div>
+        <div class="button">
+          <form id="get-photo">
+            <input
+              type="submit"
+              class="btn btn-primary mr-4 get-dog-btn"
+              value="Get Dog Photo!"
+            />
+          </form>
+        </div>
+        <div class="results hidden">
+          <h3>Here's your dog pictures!!</h3>
+        </div>
+      </form>
+    </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="logic.js"></script>
+  </body>
 </html>

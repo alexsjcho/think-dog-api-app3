@@ -26,10 +26,9 @@ h3 {
 }
 
 .get-dog-btn {
-  background-color: green;
+  background-color: orange;
 }
 
-.hidden{
+.hidden {
   display: none;
 }
-

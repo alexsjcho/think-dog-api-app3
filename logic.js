@@ -1,44 +1,27 @@
 "use strict";
 
-function watchUserInput() {
-  $("#dog-num-form").submit(e => {
+$(function() {
+  console.log("App loaded! Waiting for submit!");
+  watchGetDogPhoto();
+});
+
+function watchGetDogPhoto() {
+  $("#get-photo").submit(e => {
     e.preventDefault();
-    let userNumInput = $("#num-dog").val();
-    //Pass the number value to getDogImage
-    getDogImage(userNumInput);
+    getDogImage();
   });
 }
 
-$(function() {
-  console.log("App loaded! Waiting for submit!");
-  watchUserInput();
-});
-
-//Pass numInput, which represents an integer as an argument
-function getDogImage(numInput) {
-  if (numInput < 3) {
-    fetch("https://dog.ceo/api/breeds/image/random/3")
-      .then(response => response.json())
-      .then(responseJson =>  displayResults(responseJson))
-       .catch(error => alert('Something went wrong. Try again later.'));
-  } else if (numInput > 50) {
-    return alert("Please choose a number equal or less than 50");
-  } else {
-    fetch(`https://dog.ceo/api/breeds/image/random/${numInput}`)
-      .then(response => response.json())
-      .then(responseJson => displayResults(responseJson))
-       .catch(error => alert('Something went wrong. Try again later.'));
-  }
+function getDogImage() {
+  fetch("https://dog.ceo/api/breed/hound/images/random")
+    .then(response => response.json())
+    .then(responseJson => displayResults(responseJson.message))
+    .catch(error => alert("The dogs are alittle shy. Try again later."));
 }
 
 function displayResults(responseJson) {
   console.log(responseJson);
-  responseJson.message.forEach(renderedImg => {
-  //replace the existing image with the new one
-  $('.results').append(
-    `<img src="${renderedImg}">`
-  )
-  });
+  $(".results").append(`<img src="${responseJson.message}">`);
   //display the results section
-  $('.results').removeClass('hidden');
+  $(".results").removeClass("hidden");
 }
